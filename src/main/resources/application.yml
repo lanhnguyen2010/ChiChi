@@ -1,0 +1,15 @@
+
+security:
+  oauth2:
+    client:
+      clientId: 469088736350-v9rs3fliesbf6dqf7evqds1o7jnq8084.apps.googleusercontent.com
+      clientSecret: 1YXVaGaYZsEzJkt3yUqimpr5
+      accessTokenUri: https://accounts.google.com/o/oauth2/token
+      userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+      tokenName: id_token
+      scope: profile email
+
+    resource:
+      userInfoUri: https://www.googleapis.com/oauth2/v1/tokeninfo
+      preferTokenInfo: false
+
