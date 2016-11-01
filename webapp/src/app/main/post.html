@@ -1,0 +1,78 @@
+<md-dialog id="dialogPost" ng-cloak flex="50">
+  <div layout="column">
+    <div>
+      <md-toolbar class="acme-navbar-color">
+        <div class="md-toolbar-tools">
+          <h2>Create Job</h2>
+          <span flex></span>
+        </div>
+      </md-toolbar>
+    </div>
+    <div layout="row" flex>
+      <div flex>
+        <md-dialog-content flex>
+          <form layout="row" name="postForm">
+            <div flex="40" layout="column" style="text-align: center">
+              <div flex="20">
+                <h3>Icon</h3>
+              </div>
+              <div layout="column" style="display: block">
+                <div style="display: none">
+                  <input id="btnSelectFile" ng-show="!picFile" type="file" ngf-select ng-model="picFile" name="file"
+                         accept="image/*" ngf-max-size="1MB" required
+                         ngf-model-invalid="errorFile">
+                </div>
+                <md-button ng-show="!picFile" ng-click="chooseFile()" class="md-raised">Upload Icon</md-button>
+                <div>
+                <i ng-show="postForm.file.$error.required" style="color: red">Please select Logo</i><br>
+                <i ng-show="postForm.file.$error.maxSize">File too large, max 2M</i>
+                <img ng-show="postForm.file.$valid" ngf-thumbnail="picFile">
+                </div>
+              </div>
+              <md-button ng-click="picFile = null" ng-show="picFile">X</md-button>
+            </div>
+            <div flex="60">
+              <md-input-container flex layout="row">
+                <label flex>Title</label>
+                <input ng-model="newJob.title" flex>
+              </md-input-container>
+              <md-input-container flex layout="row">
+                <label flex>Total Hours</label>
+                <input ng-model="newJob.totalHours" flex>
+              </md-input-container>
+              <md-input-container flex layout="row">
+                <label flex>Description</label>
+                <input ng-model="newJob.description" flex>
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Required Level</label>
+                <md-select ng-model="newJob.requiredLevel">
+                  <md-option ng-repeat="level in levels">
+                    {{level}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+
+              <div layout="row">
+                <md-datepicker ng-model="startTime" md-placeholder="Start Time" flex></md-datepicker>
+                <md-datepicker ng-model="deadLine" md-placeholder="Dead Line" flex
+                               style="margin-right: 0px"></md-datepicker>
+              </div>
+              <div>
+                <div layout="row" style="text-align: center" layout-align="center center">
+                  <md-button class="md-raised" ng-click="createJob()">
+                    Ok
+                  </md-button>
+                  <md-button class="md-raised" ng-click="answer('useful')">
+                    Cancel
+                  </md-button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </md-dialog-content>
+
+      </div>
+    </div>
+  </div>
+</md-dialog>

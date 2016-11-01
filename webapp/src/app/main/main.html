@@ -1,0 +1,57 @@
+<md-content>
+  <header>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </header>
+
+  <section class="jumbotron">
+    <h1>Welcome!</h1>
+    <p class="lead">
+      <img src='{{main.user.pictureUrl}}'><br>
+      {{main.user.fullName}}
+    </p>
+    <md-button class="md-raised animated infinite" ng-click="showPost($event)">
+      Post A Job
+    </md-button>
+    <p>
+      Thanks to Our Top Contributions:
+      <acme-malarkey extra-values="['Lanh Nguyen', 'Nhan Tran', 'Ky Nguyen']"></acme-malarkey>
+    </p>
+  </section>
+
+  <div class="techs" layout-align="center">
+    <md-card ng-repeat="awesomeThing in main.awesomeThings | orderBy:'postAt'">
+      <md-card-content>
+        <img class="pull-right" ng-src="data:image/JPEG;base64,{{awesomeThing.logo}}" alt="{{ awesomeThing.title }}">
+        <h3>{{ awesomeThing.title }}</h3>
+        <p>{{ awesomeThing.description }}</p>
+        <p>
+          <span>Total Time: </span>
+            <span>
+            {{awesomeThing.totalHours}}
+            </span>
+        </p>
+        <p>
+          <span>Post At: </span>
+          <span>{{awesomeThing.postAt}}</span>
+        </p>
+        <div layout="column">
+          <p>
+            <span>Start Time: </span>
+            <span>
+            {{awesomeThing.startTime}}
+            </span>
+          </p>
+          <p>
+            <span>Dead Line: </span>
+            <span>{{awesomeThing.deadLine}}</span>
+          </p>
+        </div>
+      </md-card-content>
+      <div class="md-action-buttons" layout="row">
+        <md-button class="md-button" ng-click="pick(awesomeThing.id)">I Will Do It</md-button>
+        <md-button ng-href="{{ awesomeThing.url }}">Website</md-button>
+      </div>
+    </md-card>
+  </div>
+</md-content>
+

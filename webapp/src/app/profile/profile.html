@@ -1,0 +1,46 @@
+<div layout="column" layout-fill>
+
+  <acme-slidenav></acme-slidenav>
+  <md-content>
+    <header>
+      <acme-navbar creation-date="main.creationDate"></acme-navbar>
+    </header>
+
+    <section class="jumbotron">
+      <h1>Hello</h1>
+      <p class="lead">
+        <img src={{profile.user.pic}} alt="I'm Yeoman"><br>
+        {{profile.user.firstName}} {{profile.user.lastName}}
+      </p>
+    </section>
+
+    <div flex class="techs" layout="row">
+      <md-whiteframe flex class="md-whiteframe-1dp" layout="column">
+        <div layout="row">
+          <md-menu-item flex>User Name</md-menu-item>
+          <span flex>{{profile.user.userName}}</span>
+        </div>
+        <div layout="row">
+          <md-menu-item flex>First Name</md-menu-item>
+          <span flex>{{profile.user.firstName}}</span>
+        </div>
+        <div layout="row">
+          <md-menu-item flex>Last Name</md-menu-item>
+          <span flex>{{profile.user.lastName}}</span>
+        </div>
+        <div layout layout-align="center center">
+          <md-button class="md-warn">Edit</md-button>
+        </div>
+      </md-whiteframe>
+      <div flex layout layout-align="center">
+        <span>Active Job</span>
+      </div>
+      <md-whiteframe flex class="md-whiteframe-1dp" layout layout-align="center">
+        <span>Jobs in This month</span>
+      </md-whiteframe>
+    </div>
+
+
+  </md-content>
+
+</div>

@@ -1,0 +1,45 @@
+<div flex class="background-login-image" layout="column">
+  <div flex></div>
+  <div layout="row" flex>
+    <div flex></div>
+    <div flex>
+      <div flex class="transparent" md-whiteframe="10" style="background: transparent">
+        <div class="transparent" style="background: rgba(255,255,255,0.85)" layout-padding>
+          <form class="transparent" name="loginForm" ng-submit="loginUser($event)" novalidate>
+            <md-input-container class="md-block">
+              <label>User Name</label>
+              <input id="txtUserName" value="aaa" name="username" required md-no-asterisk
+                     ng-model="login.username">
+              <div ng-messages="loginForm.username.$error">
+                <div ng-message="required" id="lblValidateUsername" ng-bind="aaa"></div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Password</label>
+              <input id="txtPassword" type="password" name="password" md-no-asterisk required
+                     ng-model="login.password">
+              <div ng-messages="loginForm.password.$error">
+                <div ng-message="required" id="lblValidatePassword"
+                     ng-bind="::resource['login.message.missing.password']"></div>
+              </div>
+            </md-input-container>
+            <div class="right" layout="row">
+              <md-button id="btnLogin" class="md-raised md-warn btn1" aria-label="Submit"
+                         ng-disabled="loginForm.$invalid" name="submit"
+                         type="submit">Login
+              </md-button>
+              <md-button id="btnClear" class="md-raised md-warn btn1" ng-click="clearData()"
+                         aria-label="Clear" type="reset" href="#/main">Sign Up
+              </md-button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div flex></div>
+  </div>
+  <div flex></div>
+  <div flex></div>
+  <div flex></div>
+</div>
