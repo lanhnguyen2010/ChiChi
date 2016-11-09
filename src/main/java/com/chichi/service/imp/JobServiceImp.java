@@ -51,6 +51,6 @@ public class JobServiceImp implements JobService {
 
     @Override
     public List<Job> findPickedBy(Long id) {
-        return null;
+        return jobRepository.findPickedBy(id);
     }
 }

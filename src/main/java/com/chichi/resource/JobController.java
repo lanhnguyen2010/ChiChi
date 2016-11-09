@@ -79,12 +79,12 @@ public class JobController {
     }
 
     @RequestMapping(value = "/getPostedBy", method = RequestMethod.GET)
-    public ResponseEntity getPostedBy(@RequestParam Long id) {
+    public ResponseEntity getPostedBy(@RequestParam("userId") Long id) {
         return ResponseEntity.ok(jobService.findPostedBy(id));
     }
 
     @RequestMapping(value = "/pick", method = RequestMethod.GET)
-    public ResponseEntity pick(@RequestParam Long jobId) {
+    public ResponseEntity pick(@RequestParam("jobId") Long jobId) {
         User user = SecurityUtil.getCurrentUser();
         if (user == null){
             return new ResponseEntity(HttpStatus.UNAUTHORIZED);
@@ -93,7 +93,7 @@ public class JobController {
     }
 
     @RequestMapping(value = "/getPickedBy", method = RequestMethod.GET)
-    public ResponseEntity getPickBy(@RequestParam Long id) {
+    public ResponseEntity getPickBy(@RequestParam("userId") Long id) {
         return ResponseEntity.ok(jobService.findPickedBy(id));
     }
 }

@@ -1,46 +1,64 @@
-<div layout="column" layout-fill>
+<div id="profile" class="page-layout simple tabbed">
+  <header>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </header>
 
-  <acme-slidenav></acme-slidenav>
-  <md-content>
-    <header>
-      <acme-navbar creation-date="main.creationDate"></acme-navbar>
-    </header>
+  <!-- HEADER -->
+  <div class="header md-accent-bg" layout="column" layout-align="center center" layout-gt-sm="row" layout-align-gt-sm="space-between end">
+    <div class="user-info" layout="column" layout-align="center center" layout-gt-sm="row" layout-align-gt-sm="start center">
+      <img class="profile-image avatar huge" src='{{profile.user.pictureUrl}}'>
 
-    <section class="jumbotron">
-      <h1>Hello</h1>
-      <p class="lead">
-        <img src={{profile.user.pic}} alt="I'm Yeoman"><br>
-        {{profile.user.firstName}} {{profile.user.lastName}}
-      </p>
-    </section>
-
-    <div flex class="techs" layout="row">
-      <md-whiteframe flex class="md-whiteframe-1dp" layout="column">
-        <div layout="row">
-          <md-menu-item flex>User Name</md-menu-item>
-          <span flex>{{profile.user.userName}}</span>
-        </div>
-        <div layout="row">
-          <md-menu-item flex>First Name</md-menu-item>
-          <span flex>{{profile.user.firstName}}</span>
-        </div>
-        <div layout="row">
-          <md-menu-item flex>Last Name</md-menu-item>
-          <span flex>{{profile.user.lastName}}</span>
-        </div>
-        <div layout layout-align="center center">
-          <md-button class="md-warn">Edit</md-button>
-        </div>
-      </md-whiteframe>
-      <div flex layout layout-align="center">
-        <span>Active Job</span>
-      </div>
-      <md-whiteframe flex class="md-whiteframe-1dp" layout layout-align="center">
-        <span>Jobs in This month</span>
-      </md-whiteframe>
+      <div class="name">{{profile.user.fullName}}</div>
     </div>
 
+    <div class="actions" layout="row" layout-align="end center">
+      <md-button class="md-raised md-accent" aria-label="Follow" translate="PROFILE.FOLLOW"
+                 translate-attr-aria-label="PROFILE.FOLLOW">Follow
+      </md-button>
+      <md-button class="md-raised md-primary" translate="PROFILE.SEND_MESSAGE"
+                 translate-attr-aria-label="PROFILE.SEND_MESSAGE">Send Message
+      </md-button>
+    </div>
+  </div>
+  <!-- / HEADER -->
 
-  </md-content>
+  <!-- CONTENT -->
+  <div class="content" flex>
+
+    <md-tabs md-dynamic-height>
+      <md-tab>
+        <md-tab-label>
+          <span translate="PROFILE.TIMELINE">Timeline</span>
+        </md-tab-label>
+        <!--<md-tab-body>-->
+          <!--<md-content class="timeline-tab"-->
+                      <!--ng-include="'app/main/pages/profile/tabs/timeline/timeline.html'">-->
+          <!--</md-content>-->
+        <!--</md-tab-body>-->
+      </md-tab>
+      <md-tab>
+        <md-tab-label>
+          <span translate="PROFILE.ABOUT">About</span>
+        </md-tab-label>
+        <md-tab-body>
+          <md-content class="about-tab"
+                      ng-include="'app/profile/tabs/about/about.html'">
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+      <md-tab>
+        <md-tab-label>
+          <span translate="PROFILE.PHOTOS_VIDEOS">Photos & Videos</span>
+        </md-tab-label>
+        <!--<md-tab-body>-->
+          <!--<md-content class="photos-videos-tab"-->
+                      <!--ng-include="'app/main/pages/profile/tabs/photos-videos/photos-videos.html'">-->
+          <!--</md-content>-->
+        <!--</md-tab-body>-->
+      </md-tab>
+    </md-tabs>
+
+  </div>
+  <!-- / CONTENT -->
 
 </div>
